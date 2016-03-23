@@ -10,8 +10,6 @@ map <buffer> <f2> a{{{class="brush: "<cr><cr>}}}<Esc>kk$i
 map <buffer> <f3> :Vimwiki2HTMLBrowse<cr>
 "插入图片链接,加入class
 map <buffer> <f4> i{{/static/Screenshots/.png\|\|class="img-responsive"}}<Esc>
-"all search
-"map <buffer> <f5> :AllSearchWiki 
 " 插入时间
 inoremap <buffer> <f5> create by liuyong at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 
 inoremap <buffer> <f6> modify by liuyong at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 

@@ -19,7 +19,7 @@ Plugin 'Raimondi/delimitMate'
 "自动补全    
 "Plugin 'Shougo/neocomplcache'   
 "文件浏览  
-Plugin 'scrooloose/nerdtree' 
+Plugin 'xdliuyong/nerdtree' 
 "python支持合集     
 Plugin 'klen/python-mode' 
 "tab自动补全        
@@ -42,6 +42,10 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Valloric/MatchTagAlways'
 "vimwiki
 Plugin 'vimwiki/vimwiki'
+"markdown
+Plugin 'tpope/vim-markdown'
+"光标跳转类似于chrome vim插件
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 
@@ -73,7 +77,6 @@ let g:copycat#auto_sync = 1
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
-
 set smartindent
 "让backspace可以删除indent
 set backspace=indent,eol,start
@@ -102,8 +105,8 @@ endif
 setlocal foldmethod=indent
 filetype indent on
 
-
 "-----------------------------------------tree--------------------------------------
+"shift+i 显示隐藏文件
 "默认打开tree
 let g:nerdtree_tabs_open_on_console_startup=1
 "tab \n 打开关闭 tree
@@ -116,19 +119,18 @@ nnoremap <C-h> gT
 "让tree打开在tab
 autocmd BufNew * if winnr('$') == 1 | tabmove99 | endif
 
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$', 'node_modules']
+let NERDTreeIgnore=['\~$', '\.pyc$', 'nohup.out', '\.swp$', 'node_modules']
 
-"同个文件,只激活tab
-set switchbuf=usetab
+"同个文件,只激活tab,自带的无法解决,使用xdliuyong/nerdtree
+"set switchbuf=usetab
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
-
+\ if ! exists("g:leave_my_cursor_position_alone") |
+\     if line("'\"") > 0 && line ("'\"") <= line("$") |
+\         exe "normal g'\"" |
+\     endif |
+\ endif
 
 "--------------------------------------vimwiki--------------------------------------------
 autocmd BufNewFile,BufRead *.wiki set filetype=wiki
@@ -159,3 +161,11 @@ let g:vimwiki_browsers=['google-chrome']
 "---------------------------------------vue----------------------------------------------
 "支持vue高亮
 autocmd BufNewFile,BufRead *.vue set filetype=html
+
+"----------------------------------------markdown-----------------------------------------------
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+
+"vim-easymotion的快捷键
+map f <Plug>(easymotion-overwin-f2)
+
