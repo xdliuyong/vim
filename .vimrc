@@ -20,7 +20,7 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'Shougo/neocomplcache'   
 "文件浏览  
 Plugin 'xdliuyong/nerdtree' 
-"python支持合集     
+"python 格式检查   
 Plugin 'klen/python-mode' 
 "tab自动补全        
 Plugin 'ervandew/supertab'     
@@ -32,14 +32,14 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 "依赖，暂时去不掉 
 Plugin 'tpope/vim-fugitive'  
-"jinja支持     
-Plugin 'lepture/vim-jinja'
+"jinja支持(可能会导致文件浏览卡顿暂时去掉)
+"Plugin 'lepture/vim-jinja'
 "文件浏览框tab页支持        
 Plugin 'jistr/vim-nerdtree-tabs'  
-"vim状态栏
-Plugin 'Lokaltog/vim-powerline'  
-"html 标签匹配高亮
-Plugin 'Valloric/MatchTagAlways'
+"vim状态栏(可能会导致文件浏览卡顿暂时去掉)
+"Plugin 'Lokaltog/vim-powerline'  
+"html 标签匹配高亮(可能会导致文件浏览卡顿暂时去掉)
+"Plugin 'Valloric/MatchTagAlways'
 "vimwiki
 Plugin 'vimwiki/vimwiki'
 "markdown
