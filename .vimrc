@@ -9,21 +9,39 @@ set nocompatible
 "用文件类型plugin脚本(可以在ftplugin文件夹中添加文件类型对应的脚本)
 filetype plugin on
 
-"语法高亮
-syntax on
-
 "pathogen plugin管理 manage your runtimepath
 execute pathogen#infect()
 filetype plugin indent on
+
+"语法高亮
+syntax on
+
+"tab 改为 4 空格
+set expandtab "是否将输入的TAB自动展开成空格。开启后要输入TAB，需要Ctrl-V<TAB>
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+
+"vim 换行时不切断单词
+set linebreak
 
 " 设置文件编码检测类型及支持格式
 set fencs=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,latin1
+
 "colorscheme 主题/配色(主题在colors文件夹下)
 set t_Co=256
 colorscheme Tomorrow-Night
 
+"高亮查找字符
+set hlsearch
+
+"开启delete
+set nocompatible
+
+"vim和系统共用剪切板
+let g:copycat#auto_sync = 1
 
 "-------------------------------------------------------------------------vim-nerdtree-tabs----------------------------------------------------------------
 "shift+i 显示/隐藏文件
@@ -32,6 +50,16 @@ let g:nerdtree_tabs_open_on_console_startup=1
 
 "\n 打开关闭 tree
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+"nerdtree ignore
+let NERDTreeIgnore = ['\.pyc$','nohup.out', 'node_modules']
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+ \ if ! exists("g:leave_my_cursor_position_alone") |
+ \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+ \ exe "normal g'\"" |
+ \ endif |
+ \ endif
 
 
 "-------------------------------------------------------------------------vimwiki----------------------------------------------------------------
@@ -66,5 +94,37 @@ let g:vimwiki_file_exts='py,pdf,txt,doc,rtf,xls,php,zip,rar,7z,html,gz'
 "默认打开的浏览器
 let g:vimwiki_browsers=['google-chrome']
 
+
+"-------------------------------------------------------------------------支持vue高亮----------------------------------------------------------------
+"vim-vue-syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+    let g:syntastic_vue_eslint_exec = local_eslint
+endif
+
+
+"-------------------------------------------------------------------------syntastic错误提示-------------------------------------------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"改用syntastic来做python lint
+let g:pymode_lint_write = 0
+let g:syntastic_python_flake8_args='--ignore=E501'
+
+"----------------------------------------------------------------VimShellPop---------------------------------------------------------------------------------------------------------------------------
+let g:vimshell_popup_command="belowright 10split"
+map <f7> :VimShellPop<CR>
 
 
