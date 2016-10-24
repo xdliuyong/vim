@@ -94,7 +94,6 @@ let g:vimwiki_file_exts='py,pdf,txt,doc,rtf,xls,php,zip,rar,7z,html,gz'
 "默认打开的浏览器
 let g:vimwiki_browsers=['google-chrome']
 
-
 "-------------------------------------------------------------------------支持vue高亮----------------------------------------------------------------
 "vim-vue-syntastic
 let g:syntastic_javascript_checkers = ['eslint']
@@ -126,5 +125,4 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 "----------------------------------------------------------------VimShellPop---------------------------------------------------------------------------------------------------------------------------
 let g:vimshell_popup_command="belowright 10split"
 map <f7> :VimShellPop<CR>
-
-
+map <f8> :VimShellTab<CR>
