@@ -41,8 +41,7 @@ set hlsearch
 set nocompatible
 
 "vim和系统共用剪切板
-vmap "+y :w !pbcopy<CR><CR> 
-nmap "+p :r !pbpaste<CR><CR>
+"let g:copycat#auto_sync = 1
 
 "解决mac下显示错了问题
 set columns=1000

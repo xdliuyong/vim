@@ -1,4 +1,5 @@
 #! /bin/bash
+cd bundle
 git clone git@github.com:bigzhu/nerdtree.git
 git clone https://github.com/vimwiki/vimwiki.git
 git clone https://github.com/klen/python-mode
@@ -15,4 +16,5 @@ git clone https://github.com/scrooloose/syntastic.git # 语法检查
 git clone https://github.com/sekel/vim-vue-syntastic.git #让syntastic支持vue
 git clone https://github.com/rizzatti/dash.vim.git #call dash from vim
 git clone https://github.com/shougo/vimshell.vim #vim 支持shell
+git clone  git@github.com:Shougo/vimproc.vim.git  #vim支持shell的依赖
 git clone https://github.com/tpope/vim-markdown.git #markdown语法高亮
