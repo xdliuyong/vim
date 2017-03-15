@@ -25,5 +25,7 @@ map <buffer> <f3> :w<cr>:PymodeLint <cr>
 "map <buffer> <f3> :w<cr>:!python %  test <cr>
 map <buffer> <f4> :w<cr> :cd %:p:h<cr> :!python %<cr>
 "插入生成代码的相关信息
-inoremap <buffer> <f5> create by bigzhu at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 
-inoremap <buffer> <f6> modify by bigzhu at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 
+inoremap <buffer> <f5> create by liuyong at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 
+inoremap <buffer> <f6> modify by liuyong at <c-r>=strftime("%y/%m/%d %H:%M:%S")<cr> 
+"保存py文件时调用PymodeLint进行代码检查
+au BufWriteCmd *.py write || :PymodeLint

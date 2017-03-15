@@ -37,12 +37,12 @@ colorscheme Tomorrow-Night
 "高亮查找字符
 set hlsearch
 
+
 "开启delete
 set nocompatible
 
 "vim和系统共用剪切板
-vmap "+y :w !pbcopy<CR><CR> 
-nmap "+p :r !pbpaste<CR><CR>
+set clipboard=unnamed
 
 "解决mac下显示错了问题
 set columns=1000
