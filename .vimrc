@@ -5,6 +5,11 @@ set directory=~/.vim/tmp
 
 "vimwiki要求,所以首先关闭了 “compatible” 选项
 set nocompatible
+"打开相对行号
+set relativenumber
+
+"默认打开行号
+set number
 
 "用文件类型plugin脚本(可以在ftplugin文件夹中添加文件类型对应的脚本)
 filetype plugin on
@@ -15,6 +20,8 @@ filetype plugin indent on
 
 "语法高亮
 syntax on
+
+:noremap <c-d> :sh<cr>
 
 "tab 改为 4 空格
 set expandtab "是否将输入的TAB自动展开成空格。开启后要输入TAB，需要Ctrl-V<TAB>
@@ -130,3 +137,7 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 let g:vimshell_popup_command="belowright 10split"
 map <f7> :VimShellPop<CR>
 map <f8> :VimShellTab<CR>
+
+"javascript-libraries-syntax
+let g:used_javascript_libs = 'underscore,backbone,vue'
+
