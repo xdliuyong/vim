@@ -1,6 +1,18 @@
-## 介绍
-* pathogen.vim manage my vim runtimepath
-* 借鉴了[bigzhu vim configuration](https://github.com/bigzhu/vim_conf),在此深表感谢
+## Introduce
+* plug.vim manage my vim runtimepath
+
+## Install 
+cp vimrc ~/.vimrc
+
+cp vim ~/.vim
+
+vim :PlugInstall
+
+## Update
+vim :PlugUpdate
+
+## Delete
+vim :PlugClean
 
 ## Plugins
 * [vimwiki](https://github.com/vimwiki/vimwiki.git)
